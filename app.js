@@ -1,6 +1,9 @@
 const { urlencoded } = require('express')
 const express = require('express')
 const { engine } = require('express-handlebars')
+
+const generatePassword = require('./generate_password.js')
+
 const app = express()
 const port = 3000
 
@@ -15,5 +18,9 @@ app.use(express.urlencoded({ extended: false }))
 app
   .route('/')
   .get((req, res) => res.render('index'))
+
+app
+  .route('/')
+  .post(generatePassword)
 
 app.listen(port, () => console.log(`Express is listening on localhost:${port}`))
