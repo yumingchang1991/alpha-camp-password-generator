@@ -14,6 +14,6 @@ app.use(express.urlencoded({ extended: false }))
 // Get Route
 app
   .route('/')
-  .get(routeSpecificMiddleware, (req, res) => res.send('this is Express Server'))
+  .get((req, res) => res.render('index'))
 
 app.listen(port, () => console.log(`Express is listening on localhost:${port}`))
